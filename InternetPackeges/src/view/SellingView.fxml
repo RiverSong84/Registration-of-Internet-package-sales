@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import model.*?>
+
+<HBox fx:id="hbox" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+            fx:controller="controller.SellingController">
+
+    <children>
+        <VBox style="-fx-background-color: darkseagreen" >
+            <children>
+                <HBox alignment="TOP_RIGHT">
+                    <children>
+                        <Button mnemonicParsing="false" text="Close" onAction="#close"/>
+                    </children>
+                </HBox>
+                <Label text="Registration of sell" />
+                <TextField fx:id="firstName"  promptText="First name" />
+                <TextField fx:id="lastName"  promptText="Last name" />
+                <TextField fx:id="adress"  promptText="Adress" />
+                  <Label text=" Speed"/> 
+              <ChoiceBox fx:id="cbSpeed"  />  
+              <Label text=" Mbit"/>  
+              <Label fx:id="lbl3" text="Flow: " />  
+              <ChoiceBox fx:id="cbFlow" />  
+              <Label text=" GB" />  
+              <Label fx:id="lbl4" text="Duration of contract: " />  
+              <ChoiceBox fx:id="cbContract"/>  
+              <Label text=" Year" />
+              
+                <HBox alignment="TOP_RIGHT">
+                    <children >
+                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#save" text="Save" />
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clear" text="Clear" />
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" text="Delete" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>  
+             <Pane>
+            <TableView fx:id="table">
+                <columns>
+                    <TableColumn text="First name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="firstName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Last name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="lastName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Adress">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="adress" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                   
+                     <TableColumn text="Speed">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="speed" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                     <TableColumn text="Flow">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="flow" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                     <TableColumn text="Contract">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="contract" />
+                        </cellValueFactory>                        
+                    </TableColumn>
+                </columns>
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <User firstName="Nerma" lastName="Vukasovic" adress="Grbavicka bb" speed="100" flow="flat" contract="1"  />
+                        <User firstName="Zerina" lastName="Camdjic" adress="Gracanicka 28" speed="10" flow="100" contract="2"  />
+                        <User firstName="Mario" lastName="Rion" adress="Stupska 2" speed="100" flow="10" contract="1"  />
+                        <User firstName="Sabit" lastName="Nikolic" adress="Laticka A2" speed="20" flow="flat" contract="2"  />
+                    </FXCollections>
+                </items>
+            </TableView>
+        </Pane>
+      
+    </children> 
+  </HBox>  
+
